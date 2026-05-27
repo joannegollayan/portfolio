@@ -1780,12 +1780,54 @@ const obs=new IntersectionObserver(entries=>{
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 
 /* ══ CONTACT ══ */
-function handleSubmit(){
-  const name=document.getElementById('fname').value.trim();
-  const email=document.getElementById('femail').value.trim();
-  const msg=document.getElementById('fmsg').value.trim();
-  if(!name||!email||!msg){alert('Please fill in your name, email, and message.');return}
-  window.location.href=`mailto:joannegollayan07@gmail.com?subject=Project Inquiry from ${encodeURIComponent(name)}&body=${encodeURIComponent('Name: '+name+'\nEmail: '+email+'\n\n'+msg)}`;
+async function handleSubmit(){
+  const name = document.getElementById('fname').value.trim();
+  const email = document.getElementById('femail').value.trim();
+  const projectType = document.getElementById('ftype').value;
+  const budget = document.getElementById('fbudget').value.trim();
+  const msg = document.getElementById('fmsg').value.trim();
+
+  if(!name || !email || !msg){
+    alert('Please fill in your name, email, and message.');
+    return;
+  }
+
+  const button = document.querySelector('.form-submit');
+  button.disabled = true;
+  button.textContent = 'Sending...';
+
+  try{
+    const response = await fetch('https://formspree.io/f/mdajyzdn', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        name: name,
+        email: email,
+        project_type: projectType,
+        budget_or_timeline: budget,
+        message: msg
+      })
+    });
+
+    if(response.ok){
+      alert('Message sent! Thank you.');
+      document.getElementById('fname').value = '';
+      document.getElementById('femail').value = '';
+      document.getElementById('ftype').selectedIndex = 0;
+      document.getElementById('fbudget').value = '';
+      document.getElementById('fmsg').value = '';
+    }else{
+      alert('Something went wrong. Please try again.');
+    }
+  }catch(error){
+    alert('Something went wrong. Please try again.');
+  }
+
+  button.disabled = false;
+  button.textContent = 'Send Inquiry →';
 }
 
 /* ══ ESC KEY ══ */
