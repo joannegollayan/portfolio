@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Joanne Gollayan Portfolio</title>
+  <link rel="icon" type="image/png" href="public/assets/favicon/favicon.png" />
   <link rel="preload" as="image" href="public/assets/profile/joanne-profile.webp">
   <link rel="preload" as="image" href="public/assets/profile/aboutme.webp">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -1647,7 +1648,7 @@ function renderLongForm(){
     card.className=`video-card reveal${delay}`;
     card.innerHTML=`
       <div class="video-thumb">
-        <img src="${v.thumb}" alt="${v.title}" loading="lazy"/>
+        <img src="${v.thumb}" alt="${v.title}" loading="lazy" decoding="async"/>
 
         <div class="video-play-btn">
           <div class="play-icon">
@@ -1675,7 +1676,7 @@ function renderPhones(){
       <div class="phone-frame">
         <div class="phone-notch"></div>
         <div class="phone-screen">
-          <img src="${v.thumb}" alt="${v.title}" loading="lazy"/>
+          <img src="${v.thumb}" alt="${v.title}" loading="lazy" decoding="async"/>
 
           <div class="phone-play">
             <div class="phone-play-icon">
