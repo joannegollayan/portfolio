@@ -949,8 +949,7 @@ nav.scrolled .nav-cta{
 .video-thumb{position:relative;aspect-ratio:16/9;overflow:hidden;background:var(--surface-rose)}
 .video-thumb img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s}
 .video-card:hover .video-thumb img{transform:scale(1.06)}
-.video-thumb video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 0.4s}
-.video-card:hover .video-thumb video{opacity:1}
+
 .video-play-btn{
   position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
   background:rgba(44,36,33,0.16);transition:background 0.3s;
@@ -1004,11 +1003,7 @@ nav.scrolled .nav-cta{
   transition:transform 0.5s;display:block;
 }
 .phone-card:hover .phone-screen img{transform:scale(1.04)}
-.phone-screen video{
-  position:absolute;inset:0;width:100%;height:100%;
-  object-fit:cover;opacity:0;transition:opacity 0.4s;
-}
-.phone-card:hover .phone-screen video{opacity:1}
+
 .phone-play{
   position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
   background:rgba(44,36,33,0.14);
@@ -1646,13 +1641,12 @@ function renderLongForm(){
   const grid=document.getElementById('videoGridLong');
   longFormVideos.forEach((v,i)=>{
     const delay=i>0?` reveal-d${Math.min(i,5)}`:'';
-    const card=document.createElement('div');
+    const card=document.createElement('div')
     card.className=`video-card reveal${delay}`;
     card.innerHTML=`
       <div class="video-thumb">
         <img src="${v.thumb}" alt="${v.title}" loading="lazy"/>
-        <video src="${v.src}" muted loop playsinline preload="none"
-          onmouseenter="this.play()" onmouseleave="this.pause();this.currentTime=0;"></video>
+
         <div class="video-play-btn">
           <div class="play-icon">
             <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
@@ -1680,8 +1674,7 @@ function renderPhones(){
         <div class="phone-notch"></div>
         <div class="phone-screen">
           <img src="${v.thumb}" alt="${v.title}" loading="lazy"/>
-          <video src="${v.src}" muted loop playsinline preload="none"
-            onmouseenter="this.play()" onmouseleave="this.pause();this.currentTime=0;"></video>
+
           <div class="phone-play">
             <div class="phone-play-icon">
               <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
