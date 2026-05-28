@@ -1651,8 +1651,9 @@ function renderLongForm(){
     card.innerHTML=`
       <div class="video-thumb">
         <img src="${v.thumb}" alt="${v.title}" loading="lazy"/>
-        <video src="${v.src}" muted loop playsinline preload="none"
-          onmouseenter="this.play()" onmouseleave="this.pause();this.currentTime=0;"></video>
+<video data-src="${v.src}" muted loop playsinline preload="none"
+  onmouseenter="if(!this.src){this.src=this.dataset.src;} this.play()"
+  onmouseleave="this.pause();this.currentTime=0;"></video>
         <div class="video-play-btn">
           <div class="play-icon">
             <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
@@ -1680,8 +1681,9 @@ function renderPhones(){
         <div class="phone-notch"></div>
         <div class="phone-screen">
           <img src="${v.thumb}" alt="${v.title}" loading="lazy"/>
-          <video src="${v.src}" muted loop playsinline preload="none"
-            onmouseenter="this.play()" onmouseleave="this.pause();this.currentTime=0;"></video>
+<video data-src="${v.src}" muted loop playsinline preload="none"
+  onmouseenter="if(!this.src){this.src=this.dataset.src;} this.play()"
+  onmouseleave="this.pause();this.currentTime=0;"></video>
           <div class="phone-play">
             <div class="phone-play-icon">
               <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
