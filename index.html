@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Joanne Gollayan Portfolio</title>
+  <link rel="preload" as="image" href="public/assets/profile/joanne-profile.webp">
+  <link rel="preload" as="image" href="public/assets/profile/aboutme.webp">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
@@ -1295,7 +1297,7 @@ footer{
 
       <div class="hero-right">
         <div class="hero-portrait">
-          <img src="public/assets/profile/joanne-profile.webp" alt="Joanne Gollayan" loading="eager" />
+          <img src="public/assets/profile/joanne-profile.webp" alt="Joanne Gollayan" fetchpriority="high" decoding="async" />
         </div>
       </div>
 
@@ -1317,7 +1319,7 @@ footer{
   <div class="container">
     <div class="about-left reveal">
       <div class="about-photo-wrap">
-        <img src="public/assets/profile/aboutme.webp" alt="Joanne Gollayan" loading="lazy" />
+        <img src="public/assets/profile/aboutme.webp" alt="Joanne Gollayan" loading="eager" decoding="async" />
       </div>
       <div class="about-facts-grid">
         <div class="about-fact"><span>Experience</span>2+ years</div>
